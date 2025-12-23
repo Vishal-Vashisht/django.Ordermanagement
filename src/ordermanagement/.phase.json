@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "phaseApp": "OrderManagement",
+  "appId": "06a3fb1e-c30f-4da7-806d-7d782e765e4e",
+  "defaultEnv": "Development",
+  "envId": "b80d4b51-e56c-4bc9-b7df-f30ca3948492",
+  "monorepoSupport": true
+}
