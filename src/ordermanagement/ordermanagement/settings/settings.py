@@ -134,12 +134,15 @@ elif DATABASE_ENGINE == "mysql":
             "PASSWORD": os.environ["PASSWORD"],
             "HOST": os.environ["HOST"],
             "PORT": "3306",
+            "OPTIONS": {
+                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
         }
     }
 else:
     DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / 'db.sqlite3',
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 
 # Password validation
