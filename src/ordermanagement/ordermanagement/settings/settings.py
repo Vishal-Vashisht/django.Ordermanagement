@@ -88,9 +88,16 @@ SIMPLE_JWT = {
     "USER_ID_CLAIM": "user_id",
 }
 
+ENCRYPT_KEY_PATH = os.environ.get("ENCRYPT_KEY_PATH", False)
+if ENCRYPT_KEY_PATH:
+    with open(os.environ["JWT_PRIVATE_KEY_PATH"]) as f:
+        SIMPLE_JWT["SIGNING_KEY"] = f.read()
 
-SIMPLE_JWT["SIGNING_KEY"] = os.environ["RSA_PRIVATE_KEY"]
-SIMPLE_JWT["VERIFYING_KEY"] = os.environ["RSA_PUBLIC_KEY"]
+    with open(os.environ["JWT_PRIVATE_KEY_PATH"]) as f:
+        SIMPLE_JWT["VERIFYING_KEY"] = f.read()
+else:
+    SIMPLE_JWT["SIGNING_KEY"] = os.environ["RSA_PRIVATE_KEY"]
+    SIMPLE_JWT["VERIFYING_KEY"] = os.environ["RSA_PUBLIC_KEY"]
 
 TEMPLATES = [
     {
