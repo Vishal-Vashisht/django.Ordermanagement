@@ -15,7 +15,7 @@ class Orders(BaseModel):
     quivers_verified = models.BooleanField(default=False)
     middelware_verified = models.BooleanField(default=False)
     order_create_date = models.DateTimeField(null=False)
-    payment_details = models.CharField(default="Unknown")
+    payment_details = models.CharField(max_length=15, default="Unknown")
     additional_details = models.JSONField(
         default=dict,
     )
