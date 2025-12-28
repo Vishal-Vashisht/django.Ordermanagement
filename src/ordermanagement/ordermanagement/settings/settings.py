@@ -93,7 +93,7 @@ if ENCRYPT_KEY_PATH:
     with open(os.environ["JWT_PRIVATE_KEY_PATH"]) as f:
         SIMPLE_JWT["SIGNING_KEY"] = f.read()
 
-    with open(os.environ["JWT_PRIVATE_KEY_PATH"]) as f:
+    with open(os.environ["JWT_PUBLIC_KEY_PATH"]) as f:
         SIMPLE_JWT["VERIFYING_KEY"] = f.read()
 else:
     SIMPLE_JWT["SIGNING_KEY"] = os.environ["RSA_PRIVATE_KEY"]
